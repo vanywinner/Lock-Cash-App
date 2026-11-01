@@ -1,0 +1,12 @@
+{
+  "name": "lock-cash",
+  "version": "1.0.0",
+  "description": "Time-locked savings with M-Pesa Pochi, user web app/PWA and admin panel",
+  "private": true,
+  "engines": { "node": ">=22.5" },
+  "scripts": {
+    "start": "node --no-warnings server/server.js",
+    "create-admin": "node --no-warnings scripts/create-admin.js",
+    "test": "node --no-warnings --test test/api.test.js"
+  }
+}

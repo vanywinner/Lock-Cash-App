@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My savings · Lock Cash</title>
+  <meta name="theme-color" content="#0f5c43">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/logo.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap">
+      <a class="brand" href="home.html"><img src="icons/logo.svg" alt="" width="30" height="30">Lock Cash</a>
+      <div class="row">
+        <button id="btn-install" class="btn ghost small" type="button" hidden>Download App</button>
+        <button id="btn-logout" class="btn ghost small" type="button">Log out</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap stack" id="app" aria-live="polite">
+      <div class="card"><p class="empty">Loading your savings…</p></div>
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <!-- Top up -->
+  <dialog id="dlg-topup" aria-labelledby="topup-title">
+    <form id="form-topup" class="dlg" novalidate>
+      <h2 id="topup-title">Top up savings</h2>
+
+      <div class="field">
+        <label for="tu-amount">Amount (KES)</label>
+        <input id="tu-amount" name="amount" type="number" inputmode="numeric" step="1" required>
+      </div>
+
+      <fieldset class="field" id="tu-lock-field">
+        <legend class="small"><b id="tu-lock-label">Lock this money for</b></legend>
+        <div class="seg" id="tu-lock"></div>
+        <input id="tu-custom" name="customDays" type="number" inputmode="numeric" step="1" placeholder="Number of days" hidden>
+        <span class="hint" id="tu-lock-hint"></span>
+      </fieldset>
+
+      <div class="steps" aria-label="How to pay">
+        <b>1. Send the money by M-Pesa</b>
+        <span>Pochi la Biashara or Send Money to <b id="tu-pochi"></b> (<span id="tu-pochi-name"></span>). Send exactly <b id="tu-amount-echo">the amount above</b>.</span>
+        <b>2. Enter the confirmation code from the M-Pesa SMS</b>
+      </div>
+
+      <div class="field">
+        <label for="tu-code">M-Pesa code</label>
+        <input id="tu-code" name="mpesaCode" class="code" type="text" maxlength="10" autocomplete="off" autocapitalize="characters" placeholder="e.g. SJK1ABCD23" required>
+        <span class="hint">We add the money to your savings as soon as we confirm the payment.</span>
+      </div>
+
+      <div id="tu-error" class="error" role="alert" hidden></div>
+      <div class="row">
+        <button class="btn" type="submit">Submit top-up</button>
+        <button class="btn ghost" type="button" data-close>Cancel</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Withdraw -->
+  <dialog id="dlg-withdraw" aria-labelledby="wd-title">
+    <form id="form-withdraw" class="dlg" novalidate>
+      <h2 id="wd-title">Withdraw</h2>
+      <p class="muted">We send the money to your M-Pesa number <b id="wd-phone"></b>.</p>
+      <div class="field">
+        <label for="wd-amount">Amount (KES)</label>
+        <input id="wd-amount" name="amount" type="number" inputmode="numeric" step="1" min="1" required>
+        <span class="hint" id="wd-max"></span>
+      </div>
+      <div class="field">
+        <label for="wd-password">Confirm with your password</label>
+        <input id="wd-password" name="password" type="password" autocomplete="current-password" required>
+      </div>
+      <div id="wd-error" class="error" role="alert" hidden></div>
+      <div class="row">
+        <button class="btn" type="submit">Request withdrawal</button>
+        <button class="btn ghost" type="button" data-close>Cancel</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Install help (iPhone / browsers without a prompt) -->
+  <dialog id="dlg-install" aria-labelledby="in-title">
+    <div class="dlg">
+      <h2 id="in-title">Add Lock Cash to your phone</h2>
+      <div class="steps">
+        <span><b>iPhone (Safari):</b> tap the Share icon, then <b>Add to Home Screen</b>.</span>
+        <span><b>Android (Chrome):</b> tap the ⋮ menu, then <b>Install app</b> or <b>Add to Home screen</b>.</span>
+      </div>
+      <button class="btn" type="button" data-close>Got it</button>
+    </div>
+  </dialog>
+
+  <script type="module" src="js/home.js"></script>
+</body>
+</html>

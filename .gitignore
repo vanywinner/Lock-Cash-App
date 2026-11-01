@@ -1,0 +1,11 @@
+# Never commit these: the database holds everyone's money records, .env holds your secrets.
+data/
+*.db
+*.db-wal
+*.db-shm
+.env
+.env.*
+!.env.example
+node_modules/
+.DS_Store
+*.log

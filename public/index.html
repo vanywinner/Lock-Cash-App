@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign up · Lock Cash</title>
+  <meta name="description" content="Save money in a locked account that only opens on the date you choose.">
+  <meta name="theme-color" content="#0f5c43">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/logo.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+  <main class="auth">
+    <div class="card">
+      <a class="brand" href="index.html"><img src="icons/logo.svg" alt="" width="30" height="30">Lock Cash</a>
+      <h1>Create your account</h1>
+      <p class="lead">Save now. Your money opens on the date you choose.</p>
+
+      <form id="signup-form" class="form" novalidate>
+        <div class="field" id="invite-field" hidden>
+          <label for="inviteCode">Family invite code</label>
+          <input id="inviteCode" name="inviteCode" type="text" autocomplete="off" autocapitalize="off">
+          <span class="hint">Ask the family admin for this code.</span>
+        </div>
+
+        <div class="field">
+          <label for="name">Full name</label>
+          <input id="name" name="name" type="text" autocomplete="name" minlength="2" maxlength="60" required>
+        </div>
+
+        <div class="field">
+          <label for="phone">M-Pesa phone number</label>
+          <input id="phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel" placeholder="0712 345 678" pattern="[0-9+\s\-]{9,16}" required>
+          <span class="hint">Withdrawals are paid to this number.</span>
+        </div>
+
+        <div class="field">
+          <label for="password">Password</label>
+          <input id="password" name="password" type="password" data-pw autocomplete="new-password" minlength="8" maxlength="64" required>
+          <span class="hint">At least 8 characters.</span>
+        </div>
+
+        <div class="field">
+          <label for="confirmPassword">Confirm password</label>
+          <input id="confirmPassword" name="confirmPassword" type="password" data-pw autocomplete="new-password" minlength="8" maxlength="64" required>
+        </div>
+
+        <label class="row small">
+          <input id="show-pw" type="checkbox" class="check"> Show passwords
+        </label>
+        <label class="row small">
+          <input id="agree" type="checkbox" class="check" required>
+          <span>I agree to the <a href="legal.html#terms">Terms</a> and <a href="legal.html#privacy">Privacy policy</a>.</span>
+        </label>
+
+        <div id="form-error" class="error" role="alert" tabindex="-1" hidden></div>
+        <button class="btn block" type="submit">Create account</button>
+      </form>
+
+      <p class="alt">Already have an account? <a href="login.html">Log in</a></p>
+    </div>
+  </main>
+  <div id="site-footer"></div>
+  <script type="module" src="js/auth.js"></script>
+  <script type="module" src="js/pwa.js"></script>
+</body>
+</html>

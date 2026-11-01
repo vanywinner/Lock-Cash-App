@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <title>Admin · Lock Cash</title>
+  <meta name="theme-color" content="#0f5c43">
+  <link rel="icon" href="icons/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap wide">
+      <a class="brand" href="admin.html"><img src="icons/logo.svg" alt="" width="30" height="30">Lock Cash <span class="pill">Admin</span></a>
+      <div class="row">
+        <a class="btn ghost small" id="btn-export" href="api/admin/export/transactions.csv" download>Export CSV</a>
+        <button id="btn-logout" class="btn ghost small" type="button">Log out</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap wide stack">
+      <div id="stats" class="stats" aria-live="polite"></div>
+
+      <div class="tabs" role="tablist" id="tabs" aria-label="Admin sections"></div>
+      <section id="panel" role="tabpanel" aria-live="polite"></section>
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+  <dialog id="dlg"></dialog>
+  <script type="module" src="js/admin.js"></script>
+</body>
+</html>
